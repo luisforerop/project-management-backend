@@ -15,7 +15,7 @@ const tickets = require('./tickets/tickets.router').router;
 */
 
 import auth from './dbSimulation/auth'
-
+import { infoProjectsByList, infoProjectsByCompany, infoUserProjects, infoTeam } from './dbSimulation/infoProjects' 
 // MIDDLEWARE
 setupMiddleware(app); // Llamamos a setupMiddleware y dejamos que se encargue del resto
 
@@ -31,7 +31,7 @@ app.use('/tickets', tickets);
 */
 
 app.get('/' , (req , res)=>{
-
+    console.log('Petici+ón get');
    res.send({response: 'hello from simple server :)'})
 
 })
@@ -43,16 +43,43 @@ app.post('/auth' , (req , res)=>{
     const userInfo = auth({username, password})
     const errorMessage = {error: 'Error auth'}
     if(userInfo){
+        console.log(userInfo);
         res.status(202).send(userInfo)
     } else res.status(401).send(errorMessage)
 })
 
-app.get('/infoProjects' , (req , res)=>{
-
-   res.send({response: 'hello from simple server :)'})
-
+app.post('/infoProjectsByList' , (req , res)=>{
+    console.log('Esta es la req desde info p');
+    console.log(req.body);
+    const listInfo = infoProjectsByList(req.body)
+    res.send({listInfo})
 })
 
+app.post('/infoProjectsByCompany' , (req , res)=>{
+    console.log('Esta es la req desde info by company');
+    console.log(req.body);
+    const listInfo = infoProjectsByCompany(req.body)
+    console.log('Esta es la respuesta');
+    console.log({listInfo: listInfo});
+    res.send(listInfo)
+})
+
+app.post('/infoProjectsOfUser' , (req , res)=>{
+    console.log('Esta es la req desde info Users projects');
+    console.log(req.body);
+    const listInfo = infoUserProjects(req.body)
+    console.log('Esta es la respuesta');
+    console.log(listInfo);
+    res.send(listInfo)
+})
+
+app.post('/basicInfoUsers' , (req , res)=>{
+    console.log('Esta es la req desde info team');
+    console.log(req.body);
+    const listTeam = infoTeam(req.body);
+    res.send(listTeam)
+
+})
 
 app.listen(app.get('port'), ()=> {
     console.log(`server starter at port ${app.get('port')}` )

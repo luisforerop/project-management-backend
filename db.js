@@ -7,7 +7,7 @@ const company = [
         address: 'Cra 5416',
         email: 'safd@mail.com',
         users: [ 'userOne', 'userTwo', 'userThree'],
-        projects: [ 'projectOne', 'projectTwo' ]
+        projects: [ 'projectOne', 'projectTwo', 'projectThree' ]
     },    
 ]
 
@@ -42,7 +42,7 @@ const users = [
         company: 'companyOne',
         password: '1234lf',
         permits: 'scrumMaster',
-        projects: [ 'projectOne'],
+        projects: [ 'projectOne', 'projectThree'],
         tickets: [],        
     },
     {
@@ -80,7 +80,20 @@ const projects = [
         userStories: [],
         team: ['userTwo'],
         state: 'standby'
-    }
+    },
+    {
+        id: 'projectThree',
+        title: 'proyecto tres',
+        description: 'Cualquiera',
+        owner: 'userTwo',
+        company: 'companyOne',
+        userStories: [
+            'company1project1us1', 
+            'company1project1us2'
+        ],
+        team: ['userTwo', 'userThree', 'userFour'],
+        state: 'active'
+    },
 ]
 
 const userStories = [
