@@ -33,8 +33,9 @@ app.use('/tickets', tickets);
 */
 
 app.get('/' , (req , res)=>{
+    const response = 'Bienvenido al backend de la aplicación para gestión de proyectos. Si deseas ver la data que exista actualmente ingresa a /allInfo'
     console.log('Petici+ón get');
-   res.send({response: 'hello from simple server :)'})
+   res.send({response})
 
 })
 
