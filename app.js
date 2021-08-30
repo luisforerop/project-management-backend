@@ -15,7 +15,9 @@ const tickets = require('./tickets/tickets.router').router;
 */
 
 import auth from './dbSimulation/auth'
-import { infoProjectsByList, infoProjectsByCompany, infoUserProjects, infoTeam } from './dbSimulation/infoProjects' 
+import { infoProjectsByList, infoProjectsByCompany, infoUserProjects, infoTeam, devsInACompany } from './dbSimulation/infoProjects' 
+import infoAll from './dbSimulation/infoAll'
+
 // MIDDLEWARE
 setupMiddleware(app); // Llamamos a setupMiddleware y dejamos que se encargue del resto
 
@@ -78,6 +80,24 @@ app.post('/basicInfoUsers' , (req , res)=>{
     console.log(req.body);
     const listTeam = infoTeam(req.body);
     res.send(listTeam)
+})
+
+app.post('/devsInACompany' , (req , res)=>{
+    console.log(req.body);
+    const listInfo = devsInACompany(req.body)
+    res.send(listInfo)
+
+})
+
+app.put('/' , (req , res)=>{
+
+   res.send('hello from simple server :)')
+
+})
+
+app.get('/allInfo' , (req , res)=>{
+    const info = infoAll();
+    res.send(info)
 
 })
 

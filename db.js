@@ -1,4 +1,4 @@
-const company = [
+let companies = [
     {
         id: 'companyOne',
         company: 'Cocacola',
@@ -6,12 +6,12 @@ const company = [
         phone: 75161651,
         address: 'Cra 5416',
         email: 'safd@mail.com',
-        users: [ 'userOne', 'userTwo', 'userThree'],
+        users: [ 'userOne', 'userTwo', 'userThree', 'userFour'],
         projects: [ 'projectOne', 'projectTwo', 'projectThree' ]
     },    
 ]
 
-const users = [
+let users = [
     {
         id: 'userOne',
         name: 'pedro',
@@ -31,7 +31,7 @@ const users = [
         company: 'companyOne',
         password: '1234lf',
         permits: 'productOwner',
-        projects: [ 'projectOne', 'projectTwo'],
+        projects: [ 'projectOne', 'projectTwo', 'projectThree'],
         tickets: [],        
     },
     {
@@ -57,7 +57,7 @@ const users = [
         tickets: [],        
     }
 ]
-const projects = [
+let projects = [
     {
         id: 'projectOne',
         title: 'proyecto uno',
@@ -96,7 +96,7 @@ const projects = [
     },
 ]
 
-const userStories = [
+let userStories = [
     {
         id: 'company1project1us1',
         description: {
@@ -138,7 +138,7 @@ const userStories = [
     }
 ]
 
-const tickets = [
+let tickets = [
     {
         id: 'company1project1us1t1',
         title: 'carrito de compras',
@@ -171,7 +171,7 @@ const tickets = [
     }
 ]
 
-exports.company = company
+exports.companies = companies
 exports.users = users
 exports.projects = projects
 exports.userStories = userStories
